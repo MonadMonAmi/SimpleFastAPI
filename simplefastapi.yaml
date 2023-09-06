@@ -1,0 +1,21 @@
+namespace: simplefastapi
+simplefastapi:
+  defines: runnable
+  metadata:
+    name: simplefastapi
+    description: >-
+      A simple FastAPI application that provides two endpoints: a root endpoint
+      returning a hello world JSON, and an items endpoint that returns the item
+      id and an optional query parameter.
+    icon: https://emojiapi.dev/api/v1/snake.svg
+  containers:
+    simplefastapi:
+      build: .
+  services:
+    fastapi-default-port:
+      container: simplefastapi
+      port: 8000
+      host-port: 8000
+      publish: false
+      protocol: TCP
+      description: The port on which the FastAPI app is served by default.
